@@ -1,0 +1,67 @@
+/* =========================================================
+   RESPONSIVE RULES (starter – extended in Part 7)
+   ========================================================= */
+
+/* ---------- Tablets and small laptops ---------- */
+@media (max-width: 1000px) {
+  .hero-grid,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .level-grid,
+  .term-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Navbar collapses into a menu ---------- */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-3) var(--space-5) var(--space-4);
+    background: rgba(8, 8, 17, 0.97);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px 14px;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  .page {
+    padding: var(--space-5) var(--space-4) var(--space-6);
+  }
+
+  .stats-row,
+  .stats-grid,
+  .level-grid,
+  .term-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-list {
+    grid-template-columns: 1fr;
+  }
+}

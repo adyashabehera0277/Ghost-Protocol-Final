@@ -1,0 +1,329 @@
+/* =========================================================
+   AUTH PAGE (Login / Signup)
+   ========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+/* ---------- Hero (left) ---------- */
+.auth-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  animation: fadeUp 0.6s ease both;
+}
+
+.logo-large {
+  font-size: 1.4rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  margin: var(--space-2) 0 0;
+}
+
+.hero-tagline {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.hero-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero-features li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: rgba(24, 24, 42, 0.6);
+}
+
+.hero-features svg {
+  color: var(--cyan);
+}
+
+/* ---------- Shield illustration ---------- */
+.shield-art {
+  width: min(100%, 300px);
+  height: auto;
+  filter: drop-shadow(0 0 22px rgba(0, 229, 255, 0.25));
+}
+
+.shield-art .ring {
+  fill: none;
+  stroke: rgba(0, 229, 255, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 10;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 40s linear infinite;
+}
+
+.shield-art .ring-2 {
+  stroke: rgba(155, 92, 255, 0.45);
+  animation-direction: reverse;
+  animation-duration: 28s;
+}
+
+.shield-art .net line {
+  stroke: rgba(0, 229, 255, 0.4);
+  stroke-width: 1.5;
+}
+
+.shield-art .node {
+  fill: var(--cyan);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.shield-art .n2 { animation-delay: 0.4s; fill: var(--purple); }
+.shield-art .n3 { animation-delay: 0.8s; }
+.shield-art .n4 { animation-delay: 1.2s; fill: var(--magenta); }
+.shield-art .n5 { animation-delay: 1.6s; fill: var(--purple); }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+/* ---------- Auth card (right) ---------- */
+.auth-card {
+  padding: var(--space-6);
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  padding: 4px;
+  margin-bottom: var(--space-5);
+  background: rgba(8, 8, 17, 0.7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.auth-tabs button {
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.auth-tabs button.active {
+  background: var(--gradient-main);
+  color: #05050c;
+}
+
+/* ---------- Message box ---------- */
+.auth-message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 10px 14px;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  border: 1px solid;
+}
+
+.auth-message svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.auth-message.error {
+  color: #ff8fa3;
+  background: rgba(255, 77, 109, 0.1);
+  border-color: rgba(255, 77, 109, 0.4);
+}
+
+.auth-message.success {
+  color: var(--success);
+  background: rgba(61, 255, 162, 0.08);
+  border-color: rgba(61, 255, 162, 0.35);
+}
+
+.auth-message.info {
+  color: var(--cyan);
+  background: rgba(0, 229, 255, 0.07);
+  border-color: var(--border-cyan);
+}
+
+/* ---------- Form fields ---------- */
+.field {
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.field > span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.field-box {
+  position: relative;
+}
+
+.field-box > svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.field-box .input {
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  padding: 6px;
+  cursor: pointer;
+}
+
+.eye-btn:hover {
+  color: var(--cyan);
+}
+
+.auth-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+  font-size: 0.85rem;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.check input {
+  accent-color: var(--cyan);
+  width: 16px;
+  height: 16px;
+}
+
+.auth-switch {
+  text-align: center;
+  margin: var(--space-4) 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cyan);
+  font: inherit;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Demo box + note ---------- */
+.demo-box {
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  border: 1px dashed var(--border-cyan);
+  border-radius: var(--radius-md);
+  background: rgba(0, 229, 255, 0.04);
+  font-size: 0.85rem;
+}
+
+.demo-box p {
+  margin: 4px 0 var(--space-3);
+  color: var(--text-muted);
+}
+
+.demo-box code {
+  color: var(--cyan);
+  background: rgba(0, 229, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.auth-note {
+  margin: var(--space-4) 0 0;
+  font-size: 0.75rem;
+  color: #7d7d96;
+  text-align: center;
+}
+
+/* ---------- Tablet / mobile layout for the auth page ---------- */
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .auth-hero {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-features {
+    justify-content: center;
+  }
+
+  .shield-art {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-5) var(--space-4);
+  }
+}
